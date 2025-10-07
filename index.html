@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СуперЗум - Супер Аэросъемка фото и видео</title>
+    <link rel="canonical" href="https://supertelezoom.ru/">
+    <meta name="description" content="Супертеле-съёмка удалённых объектов с земли: инспекция инфраструктуры, промышленная и строительная съёмка, недвижимость и мероприятия. 4K/8K, деталь без дронов.">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0D0D0D">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="СуперЗум — супертеле-съёмка удалённых объектов">
+    <meta property="og:description" content="Профессиональная съёмка удалённых объектов с земли без дронов: инспекция, промышленность, недвижимость, события. 4K/8K.">
+    <meta property="og:url" content="https://supertelezoom.ru/">
+    <meta property="og:image" content="https://supertelezoom.ru/og-cover.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="СуперЗум — супертеле-съёмка удалённых объектов">
+    <meta name="twitter:description" content="Инспекция и съёмка удалённых объектов с земли, 4K/8K, без квадрокоптеров.">
+    <meta name="twitter:image" content="https://supertelezoom.ru/og-cover.jpg">
+    <title>СуперЗум — супертеле-съёмка удалённых объектов (4K/8K)</title>
     <style>
         /* Общие стили 1 */
         :root {
@@ -180,6 +196,10 @@
             transform: scale(1.1);
         }
 
+        .portfolio-item {
+            cursor: pointer;
+        }
+
         .portfolio-overlay {
             position: absolute;
             top: 0;
@@ -194,6 +214,7 @@
             align-items: center;
             opacity: 0;
             transition: opacity 0.5s ease;
+            pointer-events: none;
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -252,7 +273,43 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.modal-content img {
+  display: block;
+  object-fit: contain;
+  max-width: min(1280px, 90vw);
+  max-height: min(1280px, 90vh);
+  width: auto;
+  height: auto;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
     </style>
+<script type="application/ld+json">{  "@context":"https://schema.org",  "@type":"LocalBusiness",  "name":"СуперЗум",  "url":"https://supertelezoom.ru/",  "telephone":"+7-000-000-00-00",  "email":"contact@superzoom.com",  "address":{    "@type":"PostalAddress",    "addressLocality":"Москва",    "streetAddress":"ул. Примерная, д. 1",    "addressCountry":"RU"  },  "image":"https://supertelezoom.ru/og-cover.jpg",  "areaServed":"RU"}</script>
 </head>
 <body>
 
@@ -279,11 +336,9 @@
         <!-- Раздел "О компании" -->
         <section id="about">
             <div class="container">
-                <h2>Наша история</h2>
-                <p>
-                    "СуперЗум" был основан командой энтузиастов, увлеченных технологиями и искусством фотографии. Мы поняли, что дроны открывают невероятные возможности для съемки, позволяя запечатлеть мир с высоты птичьего полета. Наша миссия — предоставлять высококачественные услуги аэросъемки, которые помогают нашим клиентам увидеть привычные вещи под новым углом.
-                </p>
-            </div>
+  <h2>О компании</h2>
+  <p>Мы специализируемся на супертеле-съёмке удалённых объектов <strong>с земли</strong> — без дронов и подъёмников. Длиннофокусная оптика (до 6000&nbsp;мм экв.) даёт детальные кадры там, где запуск квадрокоптеров ограничён или невозможен: промышленная инфраструктура, стройки, ЛЭП/трубопроводы, порты/аэродромы, недвижимость и события. Работаем в 4K/8K, учитываем атмосферные условия и требования по доступу/съёмке.</p>
+</div>
         </section>
 
         <!-- Раздел "Портфолио" -->
@@ -291,26 +346,26 @@
             <div class="container">
                 <h2>Наши работы</h2>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1524850301259-de1844283843?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Съемка недвижимости">
+                    <div class="portfolio-item" tabindex="0" onclick="openModal(this.querySelector('img').src, this)">
+                        <img src="IMG_8718 Eng.jpg" alt="Съемка недвижимости" loading="lazy" decoding="async">
                         <div class="portfolio-overlay">
                             <h3>Съемка недвижимости</h3>
                         </div>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1509316976596-0370071da69d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Мероприятия и события">
+                    <div class="portfolio-item" tabindex="0" onclick="openModal(this.querySelector('img').src, this)">
+                        <img src="IMG_9078 Eng.jpg" alt="Мероприятия и события" loading="lazy" decoding="async">
                         <div class="portfolio-overlay">
                             <h3>Мероприятия и события</h3>
                         </div>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ландшафтная съемка">
+                    <div class="portfolio-item" tabindex="0" onclick="openModal(this.querySelector('img').src, this)">
+                        <img src="1S9A0887-2025.jpg" alt="Ландшафтная съемка" loading="lazy" decoding="async">
                         <div class="portfolio-overlay">
                             <h3>Ландшафтная съемка</h3>
                         </div>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="1S9A6986.jpg" alt="Инспекция объектов">
+                    <div class="portfolio-item" tabindex="0" onclick="openModal(this.querySelector('img').src, this)">
+                        <img src="1S9A6986.jpg" alt="Инспекция объектов" loading="lazy" decoding="async">
                         <div class="portfolio-overlay">
                             <h3>Инспекция объектов</h3>
                         </div>
@@ -325,8 +380,7 @@
                 <h2>Свяжитесь с нами</h2>
                 <div class="contact-content">
                     <p>Готовы обсудить ваш проект? Свяжитесь с нами любым удобным способом.</p>
-                    <p><strong>Email:</strong> contact@superzoom.com</p>
-                    <p><strong>Телефон:</strong> +7 (000) 000-00-00</p>
+<p><strong>Email:</strong> <a href="mailto:contact@superzoom.com">contact@superzoom.com</a></p><p><strong>Телефон:</strong> <a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
                     <p><strong>Часы работы:</strong> Пн-Пт с 9:00 до 18:00</p>
                     <p><strong>Местоположение:</strong> г. Москва, ул. Примерная, д. 1</p>
                 </div>
@@ -338,6 +392,62 @@
     <footer>
         <p>&copy; 2025 СуперЗум. Все права защищены.</p>
     </footer>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal" role="dialog" aria-modal="true" tabindex="-1">
+        <span class="close" aria-label="Закрыть">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="">
+        </div>
+    </div>
+
+<script>
+  let activeElement = null;
+  function openModal(src, targetElement) {
+    activeElement = targetElement;
+    const modal = document.getElementById('myModal');
+    const img = document.getElementById('modalImg');
+    img.onload = () => {
+      const naturalWidth = img.naturalWidth;
+      const naturalHeight = img.naturalHeight;
+      const longSide = Math.max(naturalWidth, naturalHeight);
+      const maxModalWidth = Math.floor(window.innerWidth * 0.9);
+      const maxModalHeight = Math.floor(window.innerHeight * 0.9);
+      let scale;
+      if (longSide > 1280) {
+        const scaleToLongSide = 1280 / longSide;
+        const scaleByModal = Math.min(maxModalWidth / naturalWidth, maxModalHeight / naturalHeight);
+        scale = Math.min(scaleToLongSide, scaleByModal);
+      } else {
+        scale = Math.max(Math.min(maxModalWidth / naturalWidth, maxModalHeight / naturalHeight), 1);
+      }
+      img.style.width = `${naturalWidth * scale}px`;
+      img.style.height = `${naturalHeight * scale}px`;
+    };
+    img.removeAttribute('style');
+    img.alt = targetElement.querySelector('img').alt;
+    img.src = src;
+    modal.style.display = 'flex';
+    modal.focus();
+  }
+  function closeModal() {
+    const modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+    if (activeElement) {
+      activeElement.focus();
+      activeElement = null;
+    }
+  }
+  const modalEl = document.getElementById('myModal');
+  const closeEl = document.querySelector('#myModal .close');
+  closeEl.onclick = closeModal;
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalEl.style.display === 'flex') closeModal();
+  });
+  window.onclick = e => {
+    if (e.target === modalEl) closeModal();
+  };
+</script>
 
 </body>
 </html>
